@@ -13,3 +13,25 @@ export async function postCadastro(req, res){
         res.status(500).send(err);
     }
 };
+
+export async function postLogin(req, res){
+    const {email, senha} = req.body;
+    const token = uuidv4();
+    try{
+        const emailEncontrado = await userCollection.findOne({email});
+
+        if(emailEncontrado&&bcrypt.compareSync(senha, emailEncontrado.senha)){
+            await db.collection("sessions").insertOne({
+                token,
+                userId: emailEncontrado._id
+            });
+            res.status(200).send({token});
+            return
+        }else{
+            res.sendStatus(401);
+            return
+        }
+    }catch(error){
+        res.status(5000).send(error);
+    }
+}
