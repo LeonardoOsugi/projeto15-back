@@ -1,4 +1,4 @@
-import { produtos } from "../index.js";
+import { produtos } from "../constants/produtos.js";
 
 export function getProduct(req, res){
     try{

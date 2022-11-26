@@ -1,4 +1,4 @@
-import { cartSchema } from "../index.js";
+import { cartSchema } from "../models/schemas.js";
 
 export function cartSchemaValidate(req, res, next){
     const {url, nome, valor} = req.body;

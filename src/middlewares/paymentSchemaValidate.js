@@ -1,4 +1,4 @@
-import { paymentSchema } from "../index.js";
+import { paymentSchema } from "../models/schemas.js";
 
 export function paymentSchemaValidate(req, res, next){
     const {cep, numero, rua, cartao, validade, codCartao} = req.body;

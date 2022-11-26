@@ -1,4 +1,4 @@
-import { userSchema } from "../index.js";
+import { userSchema } from "../models/schemas.js";
 
 export function userSchemaValidate(req, res, next){
     const {nome, email, senha, confirmSenha} = req.body;
