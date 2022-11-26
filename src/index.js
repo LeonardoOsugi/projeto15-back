@@ -6,14 +6,16 @@ dotenv.config();
 
 
 import usersRouters from "./routes/userRoutes.js";
-import productsRouters from "./routes/productsRoutes.js"
-import cartsRouters from "./routes/cartRoutes.js"
+import productsRouters from "./routes/productsRoutes.js";
+import cartsRouters from "./routes/cartRoutes.js";
+import paymentsRouters from "./routes/paymentRoutes.js";
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(usersRouters);
 app.use(productsRouters);
 app.use(cartsRouters);
+app.use(paymentsRouters);
 
 export const userSchema = joi.object({
     nome: joi.string().required().min(3).max(100),
@@ -26,7 +28,16 @@ export const cartSchema = joi.object({
     url: joi.string().required(),
     nome: joi.string().required(),
     valor: joi.string().required()
-})
+});
+
+export const paymentSchema = joi.object({
+    cep: joi.string().required(),
+    numero: joi.number().required(),
+    rua: joi.string().required(),
+    cartao: joi.string().valid("débito","crédito","Débito","Crédito"),
+    validade: joi.string().required(),
+    codCartao: joi.string().required()
+});
 
 export const produtos = [
     {

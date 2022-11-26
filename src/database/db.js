@@ -14,3 +14,4 @@ export const db = mongoClient.db("ecomerc");
 export const userCollection =  db.collection("user");
 export const produtosCollection = db.collection("produtos");
 export const cartCollection = db.collection("cart");
+export const paymentCollection = db.collection("payment");
