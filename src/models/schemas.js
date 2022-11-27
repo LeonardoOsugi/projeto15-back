@@ -19,5 +19,6 @@ export const paymentSchema = joi.object({
     rua: joi.string().required(),
     cartao: joi.string().valid("débito","crédito","Débito","Crédito"),
     validade: joi.string().required(),
-    codCartao: joi.string().required()
+    codCartao: joi.string().required(),
+    totValor: joi.string().required()
 });

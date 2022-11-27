@@ -50,3 +50,5 @@ export const produtos = [
         valor: "150.00"
     }
 ];
+
+const codAleatorio = []
