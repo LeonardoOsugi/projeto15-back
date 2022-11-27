@@ -7,7 +7,7 @@ function getRandom(min,max){
 }
 
 export async function postPayment(req, res){
-    const {cep, numero, rua, cartao, validade, codCartao, totValor} = req.body;
+    const {cep, numero, rua, cartao, validade, codCartao} = req.body;
     try{
         await cartCollection.deleteMany({});
         await paymentCollection.insertOne({
@@ -16,8 +16,7 @@ export async function postPayment(req, res){
             rua,
             cartao,
             validade,
-            codCartao,
-            totValor
+            codCartao
         });
         res.status(200).send(`${getRandom(100000000, 999999999)}`);
     }catch(err){
