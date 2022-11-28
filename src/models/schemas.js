@@ -13,11 +13,12 @@ export const cartSchema = joi.object({
     valor: joi.string().required()
 });
 
+
 export const paymentSchema = joi.object({
-    cep: joi.string().required(),
-    numero: joi.number().required(),
-    rua: joi.string().required(),
-    cartao: joi.string().valid("débito","crédito","Débito","Crédito"),
-    validade: joi.string().required(),
-    codCartao: joi.string().required()
+    cep: joi.number().required().min(8),
+    numero: joi.number().required().min(3),
+    rua: joi.string().required().min(5),
+    cartao: joi.number().required().min(16),
+    validade: joi.number().required().min(4),
+    codCartao: joi.number().required().min(3)
 });
