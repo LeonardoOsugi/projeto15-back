@@ -16,5 +16,6 @@ app.use(productsRouters);
 app.use(cartsRouters);
 app.use(paymentsRouters);
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 5000;
+
 app.listen(port, () => console.log(`runing in port: ${port}`));
